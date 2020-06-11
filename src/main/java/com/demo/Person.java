@@ -9,6 +9,6 @@ package com.demo;
 public class Person {
 
     public String say(){
-        return "说了一句话：哇哈哈哈哈~";
+        return "abc";
     }
 }
