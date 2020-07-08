@@ -25,7 +25,7 @@ public class TestSpring {
     @Test
     public void testB(){
         ApplicationContext ctx = new ClassPathXmlApplicationContext("application.xml");
-        User user = (User)ctx.getBean("liujia");
+        User user = (User)ctx.getBean("octonauts");
         System.out.println(user.getId());
         System.out.println(user.getName());
         System.out.println(user.getAge());
