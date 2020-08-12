@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-          http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="person" class="com.demo.Person"></bean>
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+    <bean id="person" class="com.yao.bean.Person" init-method="init">
+        <property name="cat" ref="cat"></property>
+    </bean>
+    <bean id="cat" class="com.yao.bean.Cat" init-method="init">
+        <property name="person" ref="person"></property>
+    </bean>
+    <bean id="myBeanFactoryPostProcessor" class="com.yao.post.MyBeanFactoryPostProcessor"></bean>
+    <bean id ="myBeanPostProcessor" class="com.yao.post.MyBeanPostProcessor"></bean>
+
+    <aop:aspectj-autoproxy/>
+
+    <bean id ="test" class="com.yao.bean.TestBean"></bean>
+    <bean class="com.yao.aspect.AspectJTest"></bean>
 </beans>
